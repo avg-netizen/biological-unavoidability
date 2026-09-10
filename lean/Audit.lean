@@ -1,0 +1,11 @@
+import RealBirthdates
+
+#check BiologicalAvoidance.IsRealPopulation
+#check BiologicalAvoidance.finite_alphabet_real_avoidance
+#print axioms BiologicalAvoidance.path_forces_eventual_periodicity
+#print axioms BiologicalAvoidance.binary_population
+#print axioms BiologicalAvoidance.aperiodic_indicator
+#print axioms BiologicalAvoidance.lift_population
+#print axioms BiologicalAvoidance.finite_alphabet_avoidance
+#print axioms BiologicalAvoidance.natural_birthdates_to_real
+#print axioms BiologicalAvoidance.finite_alphabet_real_avoidance

@@ -1,0 +1,388 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={A classification of biologically unavoidable sequences},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{A classification of biologically unavoidable sequences}
+\author{}
+\date{10 September 2026 --- draft for review}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}\label{abstract}
+
+Alexander proved that every eventually periodic sequence occurs in every
+infinite gendered population satisfying finite roots, finite outdegree
+and finite birthdate sublevels, and asked whether any other sequence has
+this property. We construct an avoiding population for each
+non-eventually-periodic sequence over every finite alphabet. For a
+binary target, the population has two roots, exactly two parents per
+non-root and at most two children per vertex. A nonnegative decreasing
+path offset proves avoidance. The construction gives a classification by
+eventual periodicity. We also characterize universality within the
+constructed binary family and deduce finite-observation and
+computability obstructions. A Lean development checks the negative
+construction and its population axioms; the verification scope is stated
+explicitly. No independent mathematical review or literature priority is
+claimed.
+
+\section{1. Population axioms and the classification
+statement}\label{population-axioms-and-the-classification-statement}
+
+Fix a nonempty finite alphabet \(A\). Following Alexander {[}1,
+Definition 1{]}, a population consists of a directed graph \((V,E)\),
+edge labels in \(A\), and birthdates \(t:V\to\mathbb R\) such that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  There are finitely many vertices with no incoming edge, called roots.
+\item
+  Every vertex has finitely many children.
+\item
+  For each real \(R\), the set \(\{v:t(v)\le R\}\) is finite; every edge
+  \(u\to v\) satisfies \(t(u)<t(v)\).
+\item
+  The vertex set is infinite.
+\item
+  Every non-root has an incoming edge of each label in \(A\).
+\end{enumerate}
+
+Each ordered pair of vertices carries at most one edge and one label. A
+sequence \(s:\mathbb N\to A\) is realized if there exists a path
+\(v_0,v_1,\ldots\) with kth edge labelled \(s(k)\). There is no
+requirement that \(v_0\) be a root. A sequence is biologically
+unavoidable when every population over its alphabet realizes it. It is
+eventually periodic when there exist integers \(K\ge0\), \(p>0\) such
+that \(s(k+p)=s(k)\) for all \(k\ge K\). Throughout this paper,
+aperiodic means not eventually periodic.
+
+\textbf{Theorem 1 (classification).} A finite-alphabet sequence is
+biologically unavoidable if and only if it is eventually periodic.
+
+The positive direction is Alexander's Theorem 10 {[}1{]}, proved again
+in Section 4 with an explicit boundary repair. The negative direction is
+the construction in Sections 2--3. It answers the final question of
+{[}1, Section 6{]}. The other questions there about universal
+populations and ordinal characterizations are not all claimed to be
+resolved by this theorem.
+
+\section{2. An explicit binary avoiding
+population}\label{an-explicit-binary-avoiding-population}
+
+Fix \(s:\mathbb N\to\{0,1\}\) and put
+
+\[r(2j)=s(j),\qquad r(2j+1)=1-s(j).\]
+
+Let \(P_s\) have vertices \(\mathbb N\) and birthdate \(t(v)=v\). For
+every \(v\ge2\) put the following two incoming edges, and no others:
+
+\[v-1\longrightarrow v\quad\text{with label }r(v),\]
+\[v-2\longrightarrow v\quad\text{with label }1-r(v).\]
+
+There is no edge \(0\to1\). The roots are exactly 0 and 1. Vertex 0 has
+one child, and each vertex \(u\ge1\) has two children. Every non-root
+has two distinct parents, with complementary labels. Birthdates increase
+strictly, their sublevel sets are finite, and the graph is infinite.
+Thus these are populations in the paper's precise edge-labelled sense.
+
+\textbf{Claim.} If \(P_s\) realizes \(s\), then \(s\) is eventually
+periodic.
+
+Suppose \(v_0,v_1,\ldots\) is an infinite matching path. Each increment
+is 1 or 2. Inductively,
+
+\[v_k\ge 2k.\]
+
+Indeed, if \(v_k\ge2k+1\), the next vertex is at least \(2k+2\). If
+\(v_k=2k\), an increment of 1 would have label \(r(2k+1)=1-s(k)\), so is
+impossible. At \(k=0\) this edge is absent; the same conclusion holds.
+The base case is \(v_0\ge0\).
+
+Consequently \(d_k=v_k-2k\) is a nonnegative integer sequence with
+increments in \(\{-1,0\}\). It eventually stabilizes at some \(d\ge0\).
+From some \(K\) onward every path increment is therefore 2, so
+
+\[s(k)=1-r(2k+d+2),\qquad k\ge K.\]
+
+If \(d=2e+1\), this says \(s(k)=s(k+e+1)\), giving positive eventual
+period \(e+1\). If \(d=2e\), it says \(s(k)=1-s(k+e+1)\); applying the
+relation twice gives period \(2e+2\). Either case forces eventual
+periodicity.
+
+Thus \textbf{every non-eventually-periodic binary target is avoided by
+its own \(P_s\), from all starting vertices}. The graph depends on the
+target; this does not produce one graph avoiding every aperiodic
+sequence.
+
+\section{3. Finite alphabets and vertex
+genders}\label{finite-alphabets-and-vertex-genders}
+
+Let \(A\) be finite and \(s:\mathbb N\to A\) not eventually periodic. At
+least one indicator projection \(\pi:A\to\{0,1\}\) has a
+non-eventually-periodic image \(\pi\circ s\). Otherwise all finitely
+many symbol indicators would be eventually periodic. Beyond the maximum
+of their starting thresholds, a common multiple of their positive
+periods would be a period of \(s\).
+
+The choice of an aperiodic indicator here is existential. No algorithm
+for selecting it from an arbitrary sequence program is asserted. The
+binary construction itself is uniform relative to its target; the
+computability reductions in Section 5 use only that binary construction.
+
+Construct the binary population \(P_{\pi\circ s}\). Replace each vertex
+\(v\) by the copies \((v,a)\), \(a\in A\). For every binary edge
+\(u\to v\) with label \(c\), add
+
+\[ (u,a)\longrightarrow(v,b)\quad\text{with label }a
+   \quad\text{for all }a,b\in A\text{ satisfying }\pi(a)=c.\]
+
+Give each copy birthdate \(v\). There are \(2|A|\) roots, at most
+\(2|A|\) children per vertex, and exactly one incoming parent of each
+label at every non-root. The other axioms are inherited. An \(s\)-path
+would project to a \(\pi\circ s\)-path in the binary population, which
+is impossible.
+
+Moreover, label \(a\) is the source copy's second coordinate: assigning
+gender \(a\) to \((v,a)\) makes this a \textbf{vertex-gendered}
+population. For a binary alphabet this yields four roots and at most
+four children per vertex. The smaller two-root/two-child construction
+uses the more general edge-labelled definition.
+
+\textbf{Thue--Morse example.} Put \(t(k)\) equal to the parity of the
+number of ones in the binary expansion of \(k\). Then \(t(2k)=t(k)\) and
+\(t(2k+1)=1-t(k)\), so the auxiliary sequence \(r\) equals \(t\) itself.
+The incoming labels at \(v\) are simply \(t(v)\) and \(1-t(v)\).
+
+For completeness, \(t\) is not eventually periodic. If \(p>0\) were an
+eventual period, then for every sufficiently large \(m\),
+\(t(2^m-p)=t(2^m)=1\). But \(2^m-p\) is the \(m\)-bit complement of
+\(p-1\), so
+
+\[t(2^m-p)=(m\bmod2)\mathbin{\mathrm{xor}}t(p-1),\]
+
+which alternates with \(m\). This is a contradiction.
+
+\section{4. The positive direction and its boundary
+repair}\label{the-positive-direction-and-its-boundary-repair}
+
+This section recalls the mathematical input from Alexander {[}1,
+Proposition 9 and Theorem 10{]}. It is included to make the
+classification argument self-contained and to clarify a deletion step.
+
+Let \(V_j\) consist of vertices reachable in at most \(j\) edges from a
+root. Each \(V_j\) is finite by finite roots and finite outdegree. Every
+vertex has finitely many ancestors, by the birthdate axiom, and every
+vertex descends from a root: a backward path must terminate inside its
+finite ancestor set.
+
+\textbf{Proposition 2 (Alexander).} Every periodic sequence is
+unavoidable.
+
+\emph{Proof.} Let \(s\) have period \(p>0\) and let
+\(w=s(0)\cdots s(p-1)\). Starting at any vertex \(v\), repeatedly try to
+select a length-\(p\) path backwards whose forward labels are \(w\).
+Whenever a full block can be selected, retain it and repeat from its
+first vertex. This process must terminate because all selected vertices
+are distinct ancestors of \(v\). If selection stops at \(u\), some
+partial backward choice of fewer than \(p\) parents reaches a root, so
+\(u\in V_{p-1}\). Otherwise all \(p\) choices would be available by the
+incoming-label condition. Thus there is a path from \(V_{p-1}\) to \(v\)
+labelled \(w^m\) for some \(m\ge0\).
+
+The lengths of these paths are unbounded as \(v\) varies: a finite set
+with finite branching reaches only finitely many vertices within any
+bounded number of steps, whereas the population is infinite. The forest
+of all \(s\)-matching finite paths starting in the finite set
+\(V_{p-1}\) is finitely branching and has unbounded height. König's
+lemma gives an infinite \(s\)-matching path. This proves the
+proposition. \(\square\)
+
+\textbf{Proposition 3 (finite prefixes).} If \(s\) is unavoidable and
+\(w\) is finite, then \(ws\) is unavoidable. Conversely, unavoidability
+of \(ws\) implies that of \(s\).
+
+\emph{Proof.} The converse follows by deleting the first \(|w|\) edges
+of a realizing path. For the forward implication, take any population
+\(P\) and write \(k=|w|\). There is nothing to prove when \(k=0\).
+Delete \(V_{k-1}\), then delete every remaining edge entering the finite
+boundary \(V_k\backslash V_{k-1}\). Those boundary vertices become
+roots. Every vertex outside \(V_k\) retains all its original parents,
+since a parent in \(V_{k-1}\) would put its child in \(V_k\). All
+population axioms therefore hold in the modified graph \(P'\), which is
+infinite because only finitely many vertices were removed.
+
+Realize \(s\) in \(P'\). Its starting vertex lies outside \(V_{k-1}\) in
+\(P\). Choose \(k\) parents backwards in \(P\) with labels spelling
+\(w\) forwards. No root can be encountered before completing those \(k\)
+choices, since that would put the starting vertex in \(V_{k-1}\).
+Prepending this path realizes \(ws\) in \(P\). \(\square\)
+
+Applying Proposition 3 to a periodic tail proves the positive direction
+of Theorem 1. Merely taking the induced graph after deleting
+\(V_{k-1}\), as in the published proof, need not preserve incoming-label
+coverage. For example, put two roots \(a_0,b_0\) at time zero and pairs
+\(a_i,b_i\) at each later integer time, each normally receiving a
+label-0 edge from \(a_{i-1}\) and a label-1 edge from \(b_{i-1}\).
+Replace the label-0 parent of \(a_2\) by \(a_0\). After the roots are
+deleted, \(a_2\) remains a non-root with no label-0 parent. The
+additional boundary-edge deletion above repairs that step without
+changing the theorem.
+
+\section{5. Universality and computability in the witness
+family}\label{universality-and-computability-in-the-witness-family}
+
+The construction has a second exact property:
+
+\[P_s\text{ realizes every binary sequence}
+\quad\Longleftrightarrow\quad s\text{ is eventually periodic}.\]
+
+The negative direction is the binary avoidance theorem in Section 2. If
+\(s\) has eventual period \(p\), then \(r\) has eventual period
+\(q=2p\). Form a finite residue multigraph modulo \(q\), with the two
+incoming transitions into residue \(a\), labelled by the eventual
+\(r(a)\) and its complement, and marked with delays 1 and 2. Every state
+has an incoming transition of each label. Every finite word can
+therefore be read backwards; finite branching and finitely many possible
+starts give an infinite path for every infinite word. Starting
+sufficiently late in \(P_s\), lift each transition by its marked delay.
+This realizes the word in the actual population. The marked delays
+retain the information needed to lift the quotient path.
+
+The graph through vertex \(N\) depends only on
+\(s(0),\ldots,s(\lfloor N/2\rfloor)\). Any such prefix can be continued
+with zeros or with Thue--Morse. The resulting populations agree on that
+entire finite region, but one is universal and the other is not. This
+also obstructs any finite adaptive sequence of local edge queries.
+
+Even a program describing the graph does not decide universality. Given
+a machine \(M\), let \(s_M(k)\) be the \(k\)th Thue--Morse bit if \(M\)
+has not halted within \(k\) steps, and zero otherwise. This sequence and
+its graph are total computable objects. The graph is universal exactly
+when \(M\) halts. Conversely, using zeros until a halt is detected and
+then starting a Thue--Morse tail gives a universal graph exactly when
+\(M\) never halts. Thus neither universality nor non-universality is
+semidecidable on these presentations, even with the promise that all
+population axioms hold.
+
+For a fixed aperiodic \(s\), breadth-first matching from any vertex
+terminates with an empty set by Section 2 and König's lemma. There is no
+bound uniform in the target even for starting vertex 1: a target with
+\(N+1\) initial zeros and an aperiodic tail admits \(N\) matching edges
+along \(v_k=1+2k\). Obtaining useful explicit bounds for the fixed
+Thue--Morse target remains a quantitative question.
+
+\section{6. Verification and
+reproducibility}\label{verification-and-reproducibility}
+
+The Lean project defines the actual edge relation and eventual
+periodicity, proves the binary path implication, proves the
+finite-alphabet indicator reduction, and constructs the lifted
+population. The final endpoint is
+\texttt{BiologicalAvoidance.finite\_alphabet\_real\_avoidance}, using
+explicitly stated real-birthdate population axioms. Consult
+\texttt{verification/lean.json} and \texttt{verification/lean.log} for
+the check result for this release and exact source hashes.
+
+The formal statement quantifies over every finite alphabet and every
+target that is not eventually periodic. It constructs a graph on the
+natural numbers times that alphabet, with real birthdates, satisfying
+all displayed population conditions and containing no infinite matching
+path from any starting vertex. The label predicate is functional on
+ordered vertex pairs. The formal proof does not assume an aperiodic
+binary projection or a population-existence lemma; those are proved
+internally.
+
+Alexander's positive direction, the proof that Thue--Morse is aperiodic,
+and the universality/computability corollaries in Section 5 remain prose
+proofs. The classification as a whole is not presented as an end-to-end
+Lean theorem. \texttt{STATEMENT-AUDIT.md} explains the correspondence
+and records that this audit was performed by the same AI system, not an
+independent reviewer.
+
+The standard-library Python programs in \texttt{checks/} independently
+transcribe edges and matching paths and check finite periodic-template
+lifts. These are diagnostic controls, not proofs of infinite claims. For
+example, failure to find a barrier within a fixed finite horizon is
+recorded as unresolved by that computation, never as an infinite path.
+
+\section{7. Attribution, provenance and
+scope}\label{attribution-provenance-and-scope}
+
+Samuel A. Alexander's positive theorem and the original population model
+are prior work {[}1{]}. The human user selected the paper, directed the
+inquiry and requested these artifacts. OpenAI Codex (GPT-6 family; no
+more specific deployment identifier is asserted) developed the new
+construction, arguments, formalization, exact checks and exposition. No
+independent human mathematical review has been recorded.
+
+The result is offered for review. Searches described in
+\texttt{literature-review.md} did not verify an earlier classification,
+but do not establish priority. The short computational reductions are
+consequences of the construction and the standard halting obstruction;
+their inclusion is not a claim that these methods are novel. No physical
+or biological prediction is inferred beyond the population model's
+stated axioms.
+
+\section{References}\label{references}
+
+{[}1{]} Samuel A. Alexander, \emph{Biologically unavoidable sequences},
+Electronic Journal of Combinatorics \textbf{20}(1) (2013), P31.
+\href{https://doi.org/10.37236/3035}{DOI: 10.37236/3035}.
+\href{https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i1p31/pdf/}{Published
+PDF}. \href{https://arxiv.org/abs/1212.0186}{arXiv:1212.0186}. Theorem
+numbers above refer to the published version.
+
+\end{document}

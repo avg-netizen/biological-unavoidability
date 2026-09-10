@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "binary_nonroot_axiom_checks": 3066,
+  "matching_transitions_checked": 34739,
+  "pure_periodic_positive_controls": 126,
+  "prefixed_periodic_positive_controls": 64,
+  "three_letter_lift_vertices": 378,
+  "barrier_summary": {
+    "Thue_Morse": {
+      "starts": 256,
+      "terminated": 256,
+      "maximum_observed": 510
+    },
+    "powers_of_two_indicator": {
+      "starts": 256,
+      "terminated": 166,
+      "maximum_observed": 8194
+    },
+    "mechanical_sqrt2_minus1": {
+      "starts": 256,
+      "terminated": 256,
+      "maximum_observed": 578
+    }
+  },
+  "scope": "Finite controls; all-start avoidance is proved in the manuscript and the finite-alphabet negative construction is formalized in the Lean project."
+}

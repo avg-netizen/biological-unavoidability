@@ -1,0 +1,17 @@
+=== BiologicalAvoidance.lean ===
+
+=== RealBirthdates.lean ===
+
+=== Audit.lean ===
+BiologicalAvoidance.IsRealPopulation.{u_1, u_2} {A : Type u_1} {V : Type u_2} (E : V → V → A → Prop) (birth : V → ℝ) :
+  Prop
+BiologicalAvoidance.finite_alphabet_real_avoidance.{u_1} {A : Type u_1} [Fintype A] (s : ℕ → A)
+  (h : ¬BiologicalAvoidance.EventuallyPeriodic s) :
+  ∃ E birth, BiologicalAvoidance.IsRealPopulation E birth ∧ ¬∃ v, ∀ (k : ℕ), E (v k) (v (k + 1)) (s k)
+'BiologicalAvoidance.path_forces_eventual_periodicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BiologicalAvoidance.binary_population' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BiologicalAvoidance.aperiodic_indicator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BiologicalAvoidance.lift_population' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BiologicalAvoidance.finite_alphabet_avoidance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BiologicalAvoidance.natural_birthdates_to_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BiologicalAvoidance.finite_alphabet_real_avoidance' depends on axioms: [propext, Classical.choice, Quot.sound]

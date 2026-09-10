@@ -1,0 +1,92 @@
+{
+  "toolchain": "leanprover/lean4:v4.32.0-rc1",
+  "dependency_mode": "existing cache",
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "expected": "360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56",
+      "actual": "360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56",
+      "tracked_content_changes": false
+    },
+    {
+      "name": "plausible",
+      "expected": "f3f26cc72646205ca167117487c008ee1dafe816",
+      "actual": "f3f26cc72646205ca167117487c008ee1dafe816",
+      "tracked_content_changes": false
+    },
+    {
+      "name": "LeanSearchClient",
+      "expected": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "actual": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "tracked_content_changes": false
+    },
+    {
+      "name": "importGraph",
+      "expected": "41f407a8e85b0fdc00910633a8f14754139b63f4",
+      "actual": "41f407a8e85b0fdc00910633a8f14754139b63f4",
+      "tracked_content_changes": false
+    },
+    {
+      "name": "proofwidgets",
+      "expected": "e6518a674e62de322b8f79eebeda7bcae2a36bc3",
+      "actual": "e6518a674e62de322b8f79eebeda7bcae2a36bc3",
+      "tracked_content_changes": false
+    },
+    {
+      "name": "aesop",
+      "expected": "b5b9e2bb45ce91e4bc44eaa738c3a8910404ab82",
+      "actual": "b5b9e2bb45ce91e4bc44eaa738c3a8910404ab82",
+      "tracked_content_changes": false
+    },
+    {
+      "name": "Qq",
+      "expected": "7a62bd13860cd39ac98da16ffc8c24d601353f69",
+      "actual": "7a62bd13860cd39ac98da16ffc8c24d601353f69",
+      "tracked_content_changes": false
+    },
+    {
+      "name": "batteries",
+      "expected": "954dbc9873f3b4534dc9896604593406d0383520",
+      "actual": "954dbc9873f3b4534dc9896604593406d0383520",
+      "tracked_content_changes": false
+    },
+    {
+      "name": "Cli",
+      "expected": "406ebb8c8e2f7e852a1b47764b42494022ce652c",
+      "actual": "406ebb8c8e2f7e852a1b47764b42494022ce652c",
+      "tracked_content_changes": false
+    }
+  ],
+  "sources": {
+    "BiologicalAvoidance.lean": "7f0fb5d6f86dc25768cf805ab2ffb397ef30c00482b0f578ad570c67aec4e20f",
+    "RealBirthdates.lean": "09ca80ba7524d2a265e2e662e262ade85d00495663e3d215d53867337bf23c76",
+    "Audit.lean": "6db8d33be7dd00ff855ed95a5d1bd9114b3975f5c097476d26900eb22205b9c0"
+  },
+  "steps": [
+    {
+      "source": "BiologicalAvoidance.lean",
+      "exit_code": 0,
+      "seconds": 122.308
+    },
+    {
+      "source": "RealBirthdates.lean",
+      "exit_code": 0,
+      "seconds": 278.964
+    },
+    {
+      "source": "Audit.lean",
+      "exit_code": 0,
+      "seconds": 276.008
+    }
+  ],
+  "status": "PASS",
+  "audited_endpoints": [
+    "aperiodic_indicator",
+    "binary_population",
+    "finite_alphabet_avoidance",
+    "finite_alphabet_real_avoidance",
+    "lift_population",
+    "natural_birthdates_to_real",
+    "path_forces_eventual_periodicity"
+  ]
+}
