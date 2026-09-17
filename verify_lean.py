@@ -35,7 +35,7 @@ try:
     for p in manifest['packages']:
         directory = packages / p['name']
         rev = subprocess.check_output(['git', '-C', str(directory), 'rev-parse', 'HEAD'], text=True).strip()
-        # This vault copy has executable-bit changes. Ignore only file modes;
+        # A copied dependency cache may have executable-bit changes. Ignore only file modes;
         # reject any tracked source-content change without altering the checkout.
         dirty = subprocess.run(['git', '-c', 'core.filemode=false', '-C', str(directory), 'diff', '--quiet', 'HEAD'], check=False).returncode
         report['dependencies'].append({'name': p['name'], 'expected': p['rev'], 'actual': rev, 'tracked_content_changes': dirty != 0})

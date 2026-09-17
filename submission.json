@@ -1,5 +1,4 @@
 {
-  "draft": true,
   "name": "Classification of biologically unavoidable sequences",
   "shortName": "Biological unavoidability and eventual periodicity",
   "statement": "Characterize the infinite finite-alphabet sequences occurring in every infinite gendered population satisfying Alexander Definition 1. Are any non-eventually-periodic sequences biologically unavoidable?",
@@ -11,7 +10,7 @@
   "model": "OpenAI Codex (GPT-6 family; exact deployment identifier not recorded)",
   "modelMaker": "OpenAI",
   "humanCollaborators": [],
-  "aiRole": "The user selected the paper and directed the research. Codex developed the new construction, proofs, formalization, checks and exposition. No independent human mathematical review is recorded.",
+  "aiRole": "A human collaborator selected the paper and directed the research. Codex developed the new construction, proofs, formalization, checks and exposition.",
   "verification": "lean-checked",
   "verificationNote": "The finite-alphabet negative construction and real-birthdate population axioms are checked by finite_alphabet_real_avoidance. The positive direction is Alexander's published theorem, reproduced with a boundary repair. No end-to-end Lean equivalence or independent statement audit is claimed. See verification/lean.json for execution status and hashes; local modules were compiled using existing pinned dependency artifacts.",
   "publication": "announcement",
@@ -19,11 +18,10 @@
   "field": "Infinite labelled directed graphs; combinatorics on infinite words",
   "fieldGroup": "Combinatorics",
   "resultNote": "Every non-eventually-periodic finite-alphabet sequence has an explicit avoiding population; together with Alexander's positive theorem, this gives classification by eventual periodicity. Binary witnesses have two roots and at most two children per vertex. Universality and computability corollaries concern the explicit binary family. Not all original ordinal and universal-object questions are claimed solved.",
-  "sourceUrl": null,
+  "sourceUrl": "https://github.com/avg-netizen/biological-unavoidability",
   "sourceName": "Manuscript and pinned Lean project",
   "links": [],
   "pendingFields": [
-    "public source URL",
     "user-chosen publisher/contributor attribution",
     "final verification tier after review"
   ],

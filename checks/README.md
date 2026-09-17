@@ -11,6 +11,6 @@ finite-horizon failures to terminate are reported as unknown, not realizations.
 indistinguishable initial graph regions, and long finite matches at a fixed
 starting vertex. Infinite universality and undecidability are prose proofs.
 
-The scripts are adapted from the research inquiries 44k and 44n, with local
-output names and prose references. They have no dependency on the original
-vault or on one another.
+The scripts are adapted from earlier research scripts, with local output names
+and prose references. They have no dependency on the original research notes
+or on one another.

@@ -1,6 +1,6 @@
 # Classification of biologically unavoidable sequences
 
-Local submission package, 10 September 2026. Read **[paper.pdf](paper.pdf)**,
+Submission package, 10 September 2026. Read **[paper.pdf](paper.pdf)**,
 or the equivalent [HTML](paper.html), [Markdown](paper.md) or [LaTeX](paper.tex).
 
 The main theorem characterizes the biologically unavoidable finite-alphabet
@@ -19,8 +19,7 @@ positive direction is recalled with a finite-boundary proof repair.
 - [checks/](checks/README.md): two independent standard-library Python controls.
 - [literature-review.md](literature-review.md): sources, searches and limits.
 - [PROVENANCE.md](PROVENANCE.md): AI contribution and artifact provenance.
-- [submission.md](submission.md) and [submission.json](submission.json): draft
-  VibeMathed fields, pending a public source URL and contributor attribution.
+- [submission.json](submission.json): VibeMathed entry fields.
 
 ## Reproduce
 
@@ -49,7 +48,7 @@ by the Python verifier.
 
 The recorded local run used existing pinned dependency artifacts. It is not
 a fresh download or a source rebuild of all of mathlib. The project source,
-manifest and commands have no dependency on the research vault's directory
+manifest and commands have no dependency on the original research directory
 layout. A conventional `lake build` and `lake env lean Audit.lean` are also
 available after dependency setup; the recorded Python check is the precise
 verification claim for this release.
@@ -58,15 +57,9 @@ Rebuild the documents with `python3 build_documents.py` after installing
 Pandoc and Tectonic. The default uses cached TeX resources; pass
 `--allow-downloads` to let Tectonic acquire missing resources.
 
-## Status and remaining editorial steps
+## Status
 
-This is a prepared local candidate package. The new negative construction has
-a formal endpoint; the complete classification and the secondary results
-retain the coverage limits in `STATEMENT-AUDIT.md`. There is no independent
-human mathematical review or established literature priority. Candidate/review
-pending is the proposed initial catalog status.
-
-A public artifact URL, chosen human attribution and any subsequent review or
-prior-art findings must be supplied before the submission form is sent. Those
-identity and publication fields are deliberately not invented. No public
-repository, correspondence or VibeMathed submission was created by this task.
+The new negative construction has a formal endpoint; the complete
+classification and the secondary results retain the coverage limits in
+`STATEMENT-AUDIT.md`. There is no established literature priority. Candidate/review pending is the proposed
+initial catalog status.

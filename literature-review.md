@@ -34,21 +34,10 @@ classification proof was verified in those searches.
 The search engine also returned unrelated biological sequence material; those
 results were not treated as mathematical evidence. We have not completed an
 exhaustive forward-citation search, checked all subsequent publications by
-the author, or received an author/expert response. The separately prepared
-author packet explicitly asks about missed prior work.
+the author, or received an author/expert response. Missed prior work remains
+possible.
 
 König's lemma, eventual-period arguments, and halting-problem reductions are
-standard tools. The paper does not claim them as new. The degree-growth
-universality argument discussed in the separate author packet has antecedents
-in the locally finite graph literature; it is not the headline result of this
-submission.
-
-## Defensible wording
-
-“We give an explicit construction answering the classification question in
-Alexander's paper. Our searches have not located an earlier classification;
-priority and independent review remain to be established.”
-
-Avoid claiming a famous long-standing conjecture, a first result in the field,
-or resolution of all three questions in the original paper. A source date
-alone is not evidence of continuous unsuccessful work by the community.
+standard tools. The paper does not claim them as new. Degree-growth
+universality arguments have antecedents in the locally finite graph
+literature; no such argument is the headline result of this submission.

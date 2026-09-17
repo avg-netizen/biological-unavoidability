@@ -1,6 +1,6 @@
 ---
 title: "A classification of biologically unavoidable sequences"
-date: "10 September 2026 — draft for review"
+date: "10 September 2026"
 geometry: margin=1in
 fontsize: 11pt
 ---
@@ -18,7 +18,7 @@ a classification by eventual periodicity. We also characterize universality
 within the constructed binary family and deduce finite-observation and
 computability obstructions. A Lean development checks the negative
 construction and its population axioms; the verification scope is stated
-explicitly. No independent mathematical review or literature priority is claimed.
+explicitly. No literature priority is claimed.
 
 # 1. Population axioms and the classification statement
 
@@ -35,7 +35,7 @@ birthdates $t:V\to\mathbb R$ such that:
 
 Each ordered pair of vertices carries at most one edge and one label.
 A sequence $s:\mathbb N\to A$ is realized if there exists a path
-$v_0,v_1,\ldots$ with kth edge labelled $s(k)$. There is no requirement
+$v_0,v_1,\ldots$ with $k$th edge labelled $s(k)$. There is no requirement
 that $v_0$ be a root. A sequence is biologically unavoidable when every
 population over its alphabet realizes it. It is eventually periodic when
 there exist integers $K\ge0$, $p>0$ such that $s(k+p)=s(k)$ for all $k\ge K$.
@@ -66,11 +66,11 @@ There is no edge $0\to1$. The roots are exactly 0 and 1. Vertex 0 has one
 child, and each vertex $u\ge1$ has two children. Every non-root has two
 distinct parents, with complementary labels. Birthdates increase strictly,
 their sublevel sets are finite, and the graph is infinite. Thus these are
-populations in the paper's precise edge-labelled sense.
+populations in the precise edge-labelled sense of [1].
 
 **Claim.** If $P_s$ realizes $s$, then $s$ is eventually periodic.
 
-Suppose $v_0,v_1,\ldots$ is an infinite matching path. Each increment is 1 or
+*Proof.* Suppose $v_0,v_1,\ldots$ is an infinite matching path. Each increment is 1 or
 2. Inductively,
 
 $$v_k\ge 2k.$$
@@ -88,7 +88,7 @@ $$s(k)=1-r(2k+d+2),\qquad k\ge K.$$
 
 If $d=2e+1$, this says $s(k)=s(k+e+1)$, giving positive eventual period
 $e+1$. If $d=2e$, it says $s(k)=1-s(k+e+1)$; applying the relation twice
-gives period $2e+2$. Either case forces eventual periodicity.
+gives period $2e+2$. Either case forces eventual periodicity. `\leavevmode\unskip\penalty9999\hbox{}\nobreak\hfill\quad\hbox{$\square$}`{=latex}`<span style="float:right">&#9633;</span>`{=html}
 
 Thus **every non-eventually-periodic binary target is avoided by its own
 $P_s$, from all starting vertices**. The graph depends on the target; this
@@ -167,7 +167,7 @@ finite branching reaches only finitely many vertices within any bounded
 number of steps, whereas the population is infinite. The forest of all
 $s$-matching finite paths starting in the finite set $V_{p-1}$ is finitely
 branching and has unbounded height. König's lemma gives an infinite
-$s$-matching path. This proves the proposition. $\square$
+$s$-matching path. This proves the proposition. `\leavevmode\unskip\penalty9999\hbox{}\nobreak\hfill\quad\hbox{$\square$}`{=latex}`<span style="float:right">&#9633;</span>`{=html}
 
 **Proposition 3 (finite prefixes).** If $s$ is unavoidable and $w$ is finite,
 then $ws$ is unavoidable. Conversely, unavoidability of $ws$ implies that of $s$.
@@ -186,7 +186,7 @@ Realize $s$ in $P'$. Its starting vertex lies outside $V_{k-1}$ in $P$.
 Choose $k$ parents backwards in $P$ with labels spelling $w$ forwards.
 No root can be encountered before completing those $k$ choices, since that
 would put the starting vertex in $V_{k-1}$. Prepending this path realizes
-$ws$ in $P$. $\square$
+$ws$ in $P$. `\leavevmode\unskip\penalty9999\hbox{}\nobreak\hfill\quad\hbox{$\square$}`{=latex}`<span style="float:right">&#9633;</span>`{=html}
 
 Applying Proposition 3 to a periodic tail proves the positive direction of
 Theorem 1. Merely taking the induced graph after deleting $V_{k-1}$, as in
@@ -272,13 +272,12 @@ by that computation, never as an infinite path.
 # 7. Attribution, provenance and scope
 
 Samuel A. Alexander's positive theorem and the original population model
-are prior work [1]. The human user selected the paper, directed the inquiry
-and requested these artifacts. OpenAI Codex (GPT-6 family; no more specific
+are prior work [1]. A human collaborator selected the paper and directed the
+research. OpenAI Codex (GPT-6 family; no more specific
 deployment identifier is asserted) developed the new construction, arguments,
-formalization, exact checks and exposition. No independent human mathematical
-review has been recorded.
+formalization, exact checks and exposition.
 
-The result is offered for review. Searches described in `literature-review.md`
+Searches described in `literature-review.md`
 did not verify an earlier classification, but do not establish priority.
 The short computational reductions are consequences of the construction and
 the standard halting obstruction; their inclusion is not a claim that these

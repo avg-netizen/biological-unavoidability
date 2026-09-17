@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc 3.10.2" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2026-09-10" />
   <title>A classification of biologically unavoidable sequences</title>
   <style>
     /* Default styles provided by pandoc.
@@ -178,7 +179,7 @@
 <header id="title-block-header">
 <h1 class="title">A classification of biologically unavoidable
 sequences</h1>
-<p class="date">10 September 2026 — draft for review</p>
+<p class="date">10 September 2026</p>
 </header>
 <h1 id="abstract">Abstract</h1>
 <p>Alexander proved that every eventually periodic sequence occurs in
@@ -193,8 +194,7 @@ eventual periodicity. We also characterize universality within the
 constructed binary family and deduce finite-observation and
 computability obstructions. A Lean development checks the negative
 construction and its population axioms; the verification scope is stated
-explicitly. No independent mathematical review or literature priority is
-claimed.</p>
+explicitly. No literature priority is claimed.</p>
 <h1 id="population-axioms-and-the-classification-statement">1.
 Population axioms and the classification statement</h1>
 <p>Fix a nonempty finite alphabet
@@ -228,7 +228,9 @@ A sequence
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>:</mo><mi mathvariant="double-struck">ℕ</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">s:\mathbb N\to A</annotation></semantics></math>
 is realized if there exists a path
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mn>0</mn></msub><mo>,</mo><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">v_0,v_1,\ldots</annotation></semantics></math>
-with kth edge labelled
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>th
+edge labelled
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">s(k)</annotation></semantics></math>.
 There is no requirement that
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mn>0</mn></msub><annotation encoding="application/x-tex">v_0</annotation></semantics></math>
@@ -275,7 +277,7 @@ The roots are exactly 0 and 1. Vertex 0 has one child, and each vertex
 has two children. Every non-root has two distinct parents, with
 complementary labels. Birthdates increase strictly, their sublevel sets
 are finite, and the graph is infinite. Thus these are populations in the
-paper’s precise edge-labelled sense.</p>
+precise edge-labelled sense of [1].</p>
 <p><strong>Claim.</strong> If
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>s</mi></msub><annotation encoding="application/x-tex">P_s</annotation></semantics></math>
 realizes
@@ -283,7 +285,7 @@ realizes
 then
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
 is eventually periodic.</p>
-<p>Suppose
+<p><em>Proof.</em> Suppose
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mn>0</mn></msub><mo>,</mo><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">v_0,v_1,\ldots</annotation></semantics></math>
 is an infinite matching path. Each increment is 1 or 2. Inductively,</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>k</mi></msub><mo>≥</mo><mn>2</mn><mi>k</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">v_k\ge 2k.</annotation></semantics></math></p>
@@ -321,7 +323,8 @@ it says
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo>+</mo><mi>e</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">s(k)=1-s(k+e+1)</annotation></semantics></math>;
 applying the relation twice gives period
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>e</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2e+2</annotation></semantics></math>.
-Either case forces eventual periodicity.</p>
+Either case forces eventual periodicity.
+<span style="float:right">&#9633;</span></p>
 <p>Thus <strong>every non-eventually-periodic binary target is avoided
 by its own
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>s</mi></msub><annotation encoding="application/x-tex">P_s</annotation></semantics></math>,
@@ -480,7 +483,7 @@ is finitely branching and has unbounded height. König’s lemma gives an
 infinite
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>-matching
 path. This proves the proposition.
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>▫</mi><annotation encoding="application/x-tex">\square</annotation></semantics></math></p>
+<span style="float:right">&#9633;</span></p>
 <p><strong>Proposition 3 (finite prefixes).</strong> If
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
 is unavoidable and
@@ -535,7 +538,7 @@ Prepending this path realizes
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">ws</annotation></semantics></math>
 in
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>.
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>▫</mi><annotation encoding="application/x-tex">\square</annotation></semantics></math></p>
+<span style="float:right">&#9633;</span></p>
 <p>Applying Proposition 3 to a periodic tail proves the positive
 direction of Theorem 1. Merely taking the induced graph after deleting
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">V_{k-1}</annotation></semantics></math>,
@@ -658,18 +661,16 @@ an infinite path.</p>
 <h1 id="attribution-provenance-and-scope">7. Attribution, provenance and
 scope</h1>
 <p>Samuel A. Alexander’s positive theorem and the original population
-model are prior work [1]. The human user selected the paper, directed
-the inquiry and requested these artifacts. OpenAI Codex (GPT-6 family;
-no more specific deployment identifier is asserted) developed the new
-construction, arguments, formalization, exact checks and exposition. No
-independent human mathematical review has been recorded.</p>
-<p>The result is offered for review. Searches described in
-<code>literature-review.md</code> did not verify an earlier
-classification, but do not establish priority. The short computational
-reductions are consequences of the construction and the standard halting
-obstruction; their inclusion is not a claim that these methods are
-novel. No physical or biological prediction is inferred beyond the
-population model’s stated axioms.</p>
+model are prior work [1]. A human collaborator selected the paper and
+directed the research. OpenAI Codex (GPT-6 family; no more specific
+deployment identifier is asserted) developed the new construction,
+arguments, formalization, exact checks and exposition.</p>
+<p>Searches described in <code>literature-review.md</code> did not
+verify an earlier classification, but do not establish priority. The
+short computational reductions are consequences of the construction and
+the standard halting obstruction; their inclusion is not a claim that
+these methods are novel. No physical or biological prediction is
+inferred beyond the population model’s stated axioms.</p>
 <h1 id="references">References</h1>
 <p>[1] Samuel A. Alexander, <em>Biologically unavoidable sequences</em>,
 Electronic Journal of Combinatorics <strong>20</strong>(1) (2013), P31.

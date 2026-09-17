@@ -14,5 +14,5 @@ run. The usual toolchain, kernel and compiled-dependency trust assumptions
 remain.
 
 The Python finite-control reports live in `../checks/*.json`. They are separate
-from the Lean proof. `../SHA256SUMS` binds the release files. No independent
-human mathematical review or external statement audit is recorded.
+from the Lean proof. `../SHA256SUMS` binds the release files. No external
+statement audit is recorded.
